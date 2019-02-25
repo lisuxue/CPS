@@ -24,15 +24,6 @@ public class RandomMouvement extends ComportementAgent {
 		int hasard = rand.nextInt(angle_step + angle_step + 1) - angle_step;
 		int newAngle = outer.getAngle() + hasard;
 		
-		if(arls==null)
-			throw new LifeCycleException("AgentRefListService not bound");
-		AgentRef[] arefs = arls.getAgentRefs();
-		if(arefs==null) {
-			action = null; // cannot take any decision
-			System.out.println("FuirAgent failed for "+outer.getID());
-			return false; // step not finished
-		}
-		
 		action = new Action(Action.MOVE,newAngle);
 		return true; // step is finished
 /*

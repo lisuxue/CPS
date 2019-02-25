@@ -14,7 +14,7 @@ public class Trouillard extends Agent {
 	/* properties */
 	
 	/* inner components */
-	CapteurProie capteur;
+	CapteurPred capteur;
 	FuirAgent fuir;
 	RandomMouvement rndmvt;
 	Effecteur effecteur;
@@ -59,7 +59,7 @@ public class Trouillard extends Agent {
 		super.initialize();
 		
 		// create inner components
-		capteur = new CapteurProie(this);
+		capteur = new CapteurPred(this);
 		fuir = new FuirAgent(this);
 		rndmvt = new RandomMouvement(this);
 		effecteur = new Effecteur(this);
@@ -94,7 +94,7 @@ public class Trouillard extends Agent {
 		}		
 		System.out.println("Trouillard '"+getID()+"' cannot do anything");
 		return false;
-		// A COMPLETER
+
 
 	}
 	

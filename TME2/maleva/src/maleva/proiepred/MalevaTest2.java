@@ -46,6 +46,7 @@ public class MalevaTest2 {
             		m.configure(env, rand.nextInt(sizeX), rand.nextInt(sizeY));
             		m.setSpeed(4);
             		m.setAngle(rand.nextInt(360));
+            		
             	}
             for (Agent t : trouillards) {
             		t.configure(env, rand.nextInt(sizeX), rand.nextInt(sizeY));
@@ -55,8 +56,15 @@ public class MalevaTest2 {
 
 			for(int i = 0; i < numSteps; i++) {
 				System.out.println("  =====       STEP: " + i + "       ======");
-				for (Agent m : mechants) m.step();
-				for (Agent t : trouillards) t.step();
+				for (Agent m : mechants) {
+					m.step();
+					env.moveAgent(m.getID(), m.getPosX(), m.getPosY(), m.getType());;
+				}
+				for (Agent t : trouillards) {
+					t.step();
+					env.moveAgent(t.getID(), t.getPosX(), t.getPosY(), t.getType());
+				}
+				
 				Thread.sleep(50);
 			}
 		} catch(Exception e) {
